@@ -24,7 +24,7 @@
                 "Martbock\\Diceware\\DicewareServiceProvider"
             ],
             "aliases": {
-                "Diceware": "Martbock\\Diceware\\Facade\\Diceware"
+                "Diceware": "Martbock\\Diceware\\Facades\\Diceware"
             }
         }
     },
