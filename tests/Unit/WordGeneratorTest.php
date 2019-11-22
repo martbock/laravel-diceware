@@ -8,6 +8,7 @@ use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use Martbock\Diceware\Tests\TestCase;
 use Martbock\Diceware\WordGenerator;
+use function preg_match;
 
 class WordGeneratorTest extends TestCase
 {
@@ -51,7 +52,9 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->getWord($number);
     }
 
-    /** @test */
+    /** @test
+     * @throws WordlistInvalidException
+     */
     public function cannot_parse_invalid_line()
     {
         $this->expectException(WordlistInvalidException::class);
@@ -79,7 +82,9 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->setConfig('capitalize', true);
         $words = $this->wordGenerator->generateWords(1);
         foreach ($words as $word) {
-            $this->assertRegExp('/^[[:upper:]][[:lower:]]+$/', $word);
+            if (!!preg_match('/^\w+$/', $word)) {
+                $this->assertRegExp('/^[[:upper:]][[:lower:]]*$/', $word);
+            }
         }
     }
 }
