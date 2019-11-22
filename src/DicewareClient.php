@@ -23,8 +23,10 @@ class DicewareClient
      *
      * @param int|null    $numberOfWords
      * @param string|null $separator
-     * @return string
+     *
      * @throws \Exception Thrown if there is not enough entropy.
+     *
+     * @return string
      */
     public function generate(int $numberOfWords = null, string $separator = null): string
     {

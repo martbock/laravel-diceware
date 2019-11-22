@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Martbock\Diceware\Tests;
-
 
 use Martbock\Diceware\DicewareServiceProvider;
 use Martbock\Diceware\Facades\Diceware;

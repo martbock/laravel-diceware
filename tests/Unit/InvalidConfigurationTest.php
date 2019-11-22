@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Martbock\Diceware\Tests\Unit;
-
 
 use Martbock\Diceware\DicewareServiceProvider;
 use Martbock\Diceware\Exceptions\InvalidConfigurationException;
@@ -10,9 +8,8 @@ use Martbock\Diceware\Tests\TestCase;
 
 class InvalidConfigurationTest extends TestCase
 {
-
     /** @var DicewareServiceProvider */
-    var $provider;
+    public $provider;
 
     protected function setUp(): void
     {

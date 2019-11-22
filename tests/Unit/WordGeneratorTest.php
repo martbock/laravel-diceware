@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Martbock\Diceware\Tests\Unit;
-
 
 use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use Martbock\Diceware\Exceptions\WordlistInvalidException;
@@ -38,7 +36,7 @@ class WordGeneratorTest extends TestCase
     public function should_generate_diceware_number()
     {
         $number = $this->wordGenerator->generateDicedNumber();
-        $this->assertTrue(is_int((int)$number));
+        $this->assertTrue(is_int((int) $number));
         $this->assertEquals($this->config['number_of_dice'], strlen($number));
     }
 
@@ -82,7 +80,7 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->setConfig('capitalize', true);
         $words = $this->wordGenerator->generateWords(1);
         foreach ($words as $word) {
-            if (!!preg_match('/^\w+$/', $word)) {
+            if ((bool) preg_match('/^\w+$/', $word)) {
                 $this->assertRegExp('/^[[:upper:]][[:lower:]]*$/', $word);
             }
         }
