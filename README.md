@@ -27,10 +27,12 @@ Perhaps, the problem is best explained by this famous xkcd comic:
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer. 
+Next, publish the `diceware.php` configuration file so can adjust the settings for this package. 
 
 ```bash
 composer require martbock/laravel-diceware
+php artisan vendor:publish --provider 'Martbock\Diceware\DicewareServiceProvider'
 ```
 
 ## Configuration
