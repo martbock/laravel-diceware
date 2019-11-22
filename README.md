@@ -1,6 +1,7 @@
 # Laravel-Diceware
 
 This package makes it easy to generate passphrases that are both secure and easy to remember.
+
 It uses [Diceware](http://world.std.com/~reinhold/diceware.html) wordlists and is fully configurable to your needs.
 
 ## Usage
@@ -23,7 +24,14 @@ that are easier to remember and to typewrite.
 Perhaps, the problem is best explained by this famous xkcd comic:
 
 [![xkcd Password Strength Comic](https://imgs.xkcd.com/comics/password_strength.png)](https://xkcd.com/936/)
-  
+
+## Installation
+
+You can install the package via composer:
+
+```bash
+composer require martbock/laravel-diceware
+```
 
 ## Configuration
 
@@ -31,12 +39,12 @@ You may change the default settings in the [diceware.php config file](config/dic
 your Laravel config directory once you install this package. Currently, the following options are supported:
 
 ```php
-    'number_of_words'       => 6,
-    'separator'             => '-',
-    'capitalize'            => false,
-    'wordlist'              => 'english',
-    'custom_wordlist_path'  => null,
-    'number_of_dice'        => 5,
+'number_of_words'       => 6,
+'separator'             => '-',
+'capitalize'            => false,
+'wordlist'              => 'english',
+'custom_wordlist_path'  => null,
+'number_of_dice'        => 5,
 ```
 
 Of course, you can use your own wordlist, just set the `custom_wordlist_path` accordingly.
