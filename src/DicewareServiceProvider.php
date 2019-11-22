@@ -19,7 +19,7 @@ class DicewareServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/diceware.php' => config_path('diceware.php'),
+            __DIR__.'/../config/diceware.php' => config_path('diceware.php'),
         ]);
     }
 
@@ -30,7 +30,7 @@ class DicewareServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/diceware.php', 'diceware');
+        $this->mergeConfigFrom(__DIR__.'/../config/diceware.php', 'diceware');
 
         $this->app->bind(WordGenerator::class, function () {
             $dicewareConfig = config('diceware');
@@ -55,6 +55,7 @@ class DicewareServiceProvider extends ServiceProvider
      * Throw an exception on configuration errors.
      *
      * @param array $config
+     *
      * @throws InvalidConfigurationException
      */
     public function protectFromInvalidConfiguration(array $config)

@@ -2,19 +2,17 @@
 
 namespace Martbock\Diceware;
 
-use ErrorException;
-use Illuminate\Support\Facades\File;
-use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use function array_push;
 use function fclose;
 use function feof;
 use function fgets;
 use function fopen;
+use Illuminate\Support\Facades\File;
 use function implode;
+use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use function preg_match;
 use function random_int;
-use function sizeof;
 use function strpos;
 use function strval;
 use function ucfirst;
@@ -32,8 +30,9 @@ class WordGenerator
     /**
      * Generate a cryptographically secure integer between 1 and 6.
      *
-     * @return int
      * @throws \Exception Thrown if there is not enough entropy.
+     *
+     * @return int
      */
     public function rollDice(): int
     {
@@ -43,8 +42,9 @@ class WordGenerator
     /**
      * Generate a number that can be looked up in a diceware wordlist.
      *
-     * @return string
      * @throws \Exception Thrown if there is not enough entropy.
+     *
+     * @return string
      */
     public function generateDicedNumber(): string
     {
@@ -52,6 +52,7 @@ class WordGenerator
         for ($i = 0; $i < $this->getNumberOfDice(); $i++) {
             $result .= strval($this->rollDice());
         }
+
         return $result;
     }
 
@@ -72,23 +73,26 @@ class WordGenerator
      */
     public function getWordlistPath(): string
     {
-        return $this->config['custom_wordlist_path'] ?: __DIR__ . '/../wordlists/' . $this->config['wordlist'] . '.txt';
+        return $this->config['custom_wordlist_path'] ?: __DIR__.'/../wordlists/'.$this->config['wordlist'].'.txt';
     }
 
     /**
      * Parse the word from the provided wordlist line.
      *
      * @param string $line
-     * @return mixed
+     *
      * @throws WordlistInvalidException
+     *
+     * @return mixed
      */
     public function parseWord(string $line): string
     {
         $parts = [];
         preg_match('/^[1-6]+\s+(.+)$/', $line, $parts);
-        if (sizeof($parts) !== 2) {
+        if (count($parts) !== 2) {
             throw WordlistInvalidException::notParsable($line);
         }
+
         return $parts[1];
     }
 
@@ -96,9 +100,11 @@ class WordGenerator
      * Get the diced word from the wordlist.
      *
      * @param string $dicedNumber
-     * @return string
+     *
      * @throws WordlistInvalidException
      * @throws InvalidConfigurationException
+     *
+     * @return string
      */
     public function getWord(string $dicedNumber): string
     {
@@ -113,10 +119,12 @@ class WordGenerator
                 $buffer = fgets($handle);
                 if (strpos($buffer, $dicedNumber) !== false) {
                     fclose($handle);
+
                     return $this->parseWord($buffer);
                 }
             }
             fclose($handle);
+
             throw WordlistInvalidException::wordNotFound($dicedNumber);
         }
 
@@ -127,8 +135,10 @@ class WordGenerator
      * Get words from the diceware wordlist.
      *
      * @param int $numberOfWords
-     * @return array
+     *
      * @throws \Exception Thrown if there is not enough entropy.
+     *
+     * @return array
      */
     public function generateWords(int $numberOfWords): array
     {
@@ -140,6 +150,7 @@ class WordGenerator
             }
             array_push($words, $word);
         }
+
         return $words;
     }
 
@@ -148,8 +159,10 @@ class WordGenerator
      *
      * @param int    $numberOfWords
      * @param string $separator
-     * @return string
+     *
      * @throws \Exception Thrown if there is not enough entropy.
+     *
+     * @return string
      */
     public function generatePassphrase(?int $numberOfWords = null, ?string $separator = null): string
     {
