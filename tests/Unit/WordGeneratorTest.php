@@ -7,6 +7,7 @@ use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use Martbock\Diceware\Tests\TestCase;
 use Martbock\Diceware\WordGenerator;
 use function preg_match;
+use function ucfirst;
 
 class WordGeneratorTest extends TestCase
 {
@@ -23,7 +24,7 @@ class WordGeneratorTest extends TestCase
             'number_of_words'      => 6,
             'separator'            => '-',
             'capitalize'           => false,
-            'wordlist'             => 'english',
+            'wordlist'             => 'eff',
             'custom_wordlist_path' => null,
             'number_of_dice'       => 5,
         ];
@@ -80,9 +81,7 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->setConfig('capitalize', true);
         $words = $this->wordGenerator->generateWords(1);
         foreach ($words as $word) {
-            if ((bool) preg_match('/^\w+$/', $word)) {
-                $this->assertRegExp('/^[[:upper:]][[:lower:]]*$/', $word);
-            }
+            $this->assertEquals(ucfirst($word), $word);
         }
     }
 }
