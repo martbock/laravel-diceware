@@ -1,7 +1,7 @@
 # Laravel-Diceware
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/martbock/laravel-diceware.svg)](https://packagist.org/packages/martbock/laravel-diceware)
-[![Build Status](https://travis-ci.com/martbock/laravel-diceware.svg?branch=master)](https://travis-ci.com/martbock/laravel-diceware)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/martbock/laravel-diceware.svg?style=flat-square)](https://packagist.org/packages/martbock/laravel-diceware)
+[![Build Status](https://img.shields.io/travis/com/martbock/laravel-diceware/master?style=flat-square)](https://travis-ci.com/martbock/laravel-diceware)
 [![StyleCI](https://github.styleci.io/repos/223468104/shield?branch=master)](https://github.styleci.io/repos/223468104)
 
 This package makes it easy to generate passphrases that are both secure and easy to remember.
