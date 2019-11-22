@@ -1,0 +1,12 @@
+# Composer
+vendor/
+
+# PHPUnit
+.phpunit.result.cache
+coverage/
+
+# IDE
+.idea/
+
+# macOS
+.DS_Store

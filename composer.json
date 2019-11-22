@@ -1,0 +1,57 @@
+{
+    "name": "martbock/laravel-diceware",
+    "description": "Diceware Passphrase Generator for Laravel",
+    "keywords": [
+        "diceware",
+        "passphrase",
+        "password",
+        "generator",
+        "laravel"
+    ],
+    "homepage": "https://github.com/martbock/laravel-diceware",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Bock",
+            "email": "mail@mnbo.de",
+            "homepage": "https://martin-bock.com",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Martbock\\Diceware\\DicewareServiceProvider"
+            ],
+            "aliases": {
+                "Diceware": "Martbock\\Diceware\\DicewareFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "~5.8.0|^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.8.0|^4.0",
+        "phpunit/phpunit": "^7.5|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Martbock\\Diceware\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Martbock\\Diceware\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
