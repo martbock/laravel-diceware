@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
+        id: extract_branch
+
       - name: Setup PHP with Xdebug
         uses: shivammathur/setup-php@v2
         with:
@@ -46,3 +51,11 @@ jobs:
         with:
           percentage: "80"
           filename: "coverage.xml"
+
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: {{ secrets.CODE_CLIMATE_REPORTER_ID }}
+        with:
+          coverageLocations: ${{github.workspace}}/coverage.xml:clover
+        if: steps.extract_branch.outputs.branch == 'master'
