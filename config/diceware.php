@@ -43,6 +43,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Add a Number
+    |--------------------------------------------------------------------------
+    |
+    | If you want to include a number in every generated password, set this
+    | option to `true`. The number will be prepended to the passphrase.
+    | Example: '93neglector-silly-papaya-mankind-feel-portly'
+    |
+    */
+
+    'add_number' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Wordlist
     |--------------------------------------------------------------------------
     |
@@ -81,5 +94,4 @@ return [
     */
 
     'number_of_dice' => 5,
-
 ];

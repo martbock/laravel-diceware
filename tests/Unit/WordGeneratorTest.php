@@ -23,6 +23,7 @@ class WordGeneratorTest extends TestCase
             'number_of_words'      => 6,
             'separator'            => '-',
             'capitalize'           => false,
+            'add_number'           => false,
             'wordlist'             => 'eff',
             'custom_wordlist_path' => null,
             'number_of_dice'       => 5,
@@ -36,7 +37,7 @@ class WordGeneratorTest extends TestCase
     public function should_generate_diceware_number()
     {
         $number = $this->wordGenerator->generateDicedNumber();
-        $this->assertTrue(is_int((int) $number));
+        $this->assertTrue(is_int((int)$number));
         $this->assertEquals($this->config['number_of_dice'], strlen($number));
     }
 
@@ -75,12 +76,46 @@ class WordGeneratorTest extends TestCase
     /** @test
      * @throws \Exception
      */
-    public function should_capitalize()
+    public function should_capitalize_when_active()
     {
         $this->wordGenerator->setConfig('capitalize', true);
         $words = $this->wordGenerator->generateWords(1);
         foreach ($words as $word) {
             $this->assertEquals(ucfirst($word), $word);
         }
+    }
+
+    /** @test
+     * @throws \Exception
+     */
+    public function should_not_capitalize_when_inactive()
+    {
+        $this->wordGenerator->setConfig('capitalize', false);
+        $words = $this->wordGenerator->generateWords(1);
+        foreach ($words as $word) {
+            $this->assertEquals(strtolower($word), $word);
+        }
+    }
+
+    /** @test
+     * @throws \Exception
+     */
+    public function should_add_number_when_active()
+    {
+        $this->wordGenerator->setConfig('add_number', true);
+        $result = $this->wordGenerator->generatePassphrase();
+        $arr = explode($this->config['separator'], $result);
+        $this->assertIsNumeric($arr[0]);
+    }
+
+    /** @test
+     * @throws \Exception
+     */
+    public function should_not_add_number_when_inactive()
+    {
+        $this->wordGenerator->setConfig('add_number', false);
+        $result = $this->wordGenerator->generatePassphrase();
+        $arr = explode($this->config['separator'], $result);
+        $this->assertIsNotNumeric($arr[0]);
     }
 }

@@ -55,7 +55,6 @@ class DicewareServiceProvider extends ServiceProvider
      * Throw an exception on configuration errors.
      *
      * @param array $config
-     *
      * @throws InvalidConfigurationException
      */
     public function protectFromInvalidConfiguration(array $config)
