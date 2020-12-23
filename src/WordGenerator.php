@@ -47,6 +47,7 @@ class WordGenerator
     public function generateDicedNumber(): string
     {
         $result = '';
+        
         for ($i = 0; $i < $this->getNumberOfDice(); $i++) {
             $result .= strval($this->rollDice());
         }
