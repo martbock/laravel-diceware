@@ -106,6 +106,9 @@ class WordGeneratorTest extends TestCase
         $result = $this->wordGenerator->generatePassphrase();
         $arr = explode($this->config['separator'], $result);
         $this->assertIsNumeric($arr[0]);
+        for ($i = 1; $i < $this->config['number_of_words']; $i++) {
+            $this->assertIsNotNumeric($arr[$i]);
+        }
     }
 
     /** @test
@@ -116,6 +119,8 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->setConfig('add_number', false);
         $result = $this->wordGenerator->generatePassphrase();
         $arr = explode($this->config['separator'], $result);
-        $this->assertIsNotNumeric($arr[0]);
+        for ($i = 0; $i < $this->config['number_of_words']; $i++) {
+            $this->assertIsNotNumeric($arr[$i]);
+        }
     }
 }

@@ -48,7 +48,7 @@ return [
     |
     | If you want to include a number in every generated password, set this
     | option to `true`. The number will be prepended to the passphrase.
-    | Example: '93neglector-silly-papaya-mankind-feel-portly'
+    | Example: '93-neglector-silly-papaya-mankind-feel-portly'
     |
     */
 
