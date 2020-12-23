@@ -49,6 +49,7 @@ class WordGenerator
     public function generateDicedNumber(): string
     {
         $result = '';
+
         for ($i = 0; $i < $this->getNumberOfDice(); $i++) {
             $result .= strval($this->rollDice());
         }
@@ -101,8 +102,8 @@ class WordGenerator
      *
      * @param string $dicedNumber
      *
-     * @throws WordlistInvalidException
      * @throws InvalidConfigurationException
+     * @throws WordlistInvalidException
      *
      * @return string
      */
@@ -157,8 +158,8 @@ class WordGenerator
     /**
      * Generate a diceware passphrase.
      *
-     * @param int    $numberOfWords
-     * @param string $separator
+     * @param int|null    $numberOfWords
+     * @param string|null $separator
      *
      * @throws \Exception Thrown if there is not enough entropy.
      *
@@ -171,7 +172,13 @@ class WordGenerator
 
         $words = $this->generateWords($numberOfWords);
 
-        return implode($separator, $words);
+        $phrase = implode($separator, $words);
+
+        if ($this->config['add_number']) {
+            return random_int(1, 999).$this->config['separator'].$phrase;
+        }
+
+        return $phrase;
     }
 
     /**
