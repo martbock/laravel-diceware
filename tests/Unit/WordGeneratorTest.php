@@ -37,7 +37,7 @@ class WordGeneratorTest extends TestCase
     public function should_generate_diceware_number()
     {
         $number = $this->wordGenerator->generateDicedNumber();
-        $this->assertTrue(is_int((int)$number));
+        $this->assertTrue(is_int((int) $number));
         $this->assertEquals($this->config['number_of_dice'], strlen($number));
     }
 
