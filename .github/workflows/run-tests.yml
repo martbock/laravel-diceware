@@ -42,7 +42,7 @@ jobs:
 
       - name: Check test coverage
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
-        id: coverage
+        id: coverage-clover
         with:
           percentage: "80"
           filename: "coverage.xml"
