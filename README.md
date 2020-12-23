@@ -50,6 +50,7 @@ your Laravel config directory once you install this package. Currently, the foll
 'number_of_words'       => 6,
 'separator'             => '-',
 'capitalize'            => false,
+'add_number'            => false,
 'wordlist'              => 'english',
 'custom_wordlist_path'  => null,
 'number_of_dice'        => 5,
