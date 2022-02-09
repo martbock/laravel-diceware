@@ -10,11 +10,8 @@ use function ucfirst;
 
 class WordGeneratorTest extends TestCase
 {
-    /** @var array */
-    protected $config;
-
-    /** @var WordGenerator */
-    protected $wordGenerator;
+    protected ?array $config;
+    protected ?WordGenerator $wordGenerator;
 
     protected function setUp(): void
     {
@@ -31,9 +28,7 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator = new WordGenerator($this->config);
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function should_generate_diceware_number()
     {
         $number = $this->wordGenerator->generateDicedNumber();
@@ -41,9 +36,7 @@ class WordGeneratorTest extends TestCase
         $this->assertEquals($this->config['number_of_dice'], strlen($number));
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function cannot_get_invalid_word()
     {
         $number = '12349';
@@ -51,9 +44,7 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->getWord($number);
     }
 
-    /** @test
-     * @throws WordlistInvalidException
-     */
+    /** @test */
     public function cannot_parse_invalid_line()
     {
         $this->expectException(WordlistInvalidException::class);
@@ -62,10 +53,7 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
-     * @throws WordlistInvalidException
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function cannot_open_invalid_wordlist_file()
     {
         $this->wordGenerator->setConfig('custom_wordlist_path', '/invalid/path');
@@ -73,9 +61,7 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->getWord('12345');
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function should_capitalize_when_active()
     {
         $this->wordGenerator->setConfig('capitalize', true);
@@ -85,9 +71,7 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function should_not_capitalize_when_inactive()
     {
         $this->wordGenerator->setConfig('capitalize', false);
@@ -97,9 +81,7 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function should_add_number_when_active()
     {
         $this->wordGenerator->setConfig('add_number', true);
@@ -111,9 +93,7 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
-     * @throws \Exception
-     */
+    /** @test */
     public function should_not_add_number_when_inactive()
     {
         $this->wordGenerator->setConfig('add_number', false);
