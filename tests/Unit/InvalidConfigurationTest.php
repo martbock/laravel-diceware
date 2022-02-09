@@ -8,8 +8,7 @@ use Martbock\Diceware\Tests\TestCase;
 
 class InvalidConfigurationTest extends TestCase
 {
-    /** @var DicewareServiceProvider */
-    public $provider;
+    protected ?DicewareServiceProvider $provider;
 
     protected function setUp(): void
     {
@@ -18,9 +17,7 @@ class InvalidConfigurationTest extends TestCase
         $this->provider = new DicewareServiceProvider(null);
     }
 
-    /** @test
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function protect_from_invalid_number_of_words()
     {
         $config = [
@@ -30,9 +27,7 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function protect_from_invalid_separator()
     {
         $config = [
@@ -43,9 +38,7 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function protect_from_invalid_capitalize()
     {
         $config = [
@@ -57,9 +50,7 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function protect_from_invalid_wordlist_name()
     {
         $config = [
@@ -72,9 +63,7 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
-     * @throws InvalidConfigurationException
-     */
+    /** @test */
     public function protect_from_invalid_custom_wordlist_path()
     {
         $config = [

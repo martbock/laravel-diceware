@@ -19,8 +19,7 @@ use function ucfirst;
 
 class WordGenerator
 {
-    /** @var array */
-    protected $config;
+    protected array $config;
 
     public function __construct(array $config)
     {

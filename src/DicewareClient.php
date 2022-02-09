@@ -4,11 +4,8 @@ namespace Martbock\Diceware;
 
 class DicewareClient
 {
-    /** @var WordGenerator */
-    protected $wordGenerator;
-
-    /** @var array */
-    protected $config;
+    protected WordGenerator $wordGenerator;
+    protected array $config;
 
     public function __construct(WordGenerator $wordGenerator, array $config)
     {
