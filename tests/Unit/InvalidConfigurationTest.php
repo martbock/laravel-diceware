@@ -8,7 +8,7 @@ use Martbock\Diceware\Tests\TestCase;
 
 class InvalidConfigurationTest extends TestCase
 {
-    public ?DicewareServiceProvider $provider;
+    protected ?DicewareServiceProvider $provider;
 
     protected function setUp(): void
     {
