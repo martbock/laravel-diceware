@@ -18,7 +18,9 @@ class InvalidConfigurationTest extends TestCase
         $this->provider = new DicewareServiceProvider(null);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws InvalidConfigurationException
      */
     public function protect_from_invalid_number_of_words()
@@ -30,7 +32,9 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws InvalidConfigurationException
      */
     public function protect_from_invalid_separator()
@@ -43,7 +47,9 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws InvalidConfigurationException
      */
     public function protect_from_invalid_capitalize()
@@ -57,7 +63,9 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws InvalidConfigurationException
      */
     public function protect_from_invalid_wordlist_name()
@@ -72,7 +80,9 @@ class InvalidConfigurationTest extends TestCase
         $this->provider->protectFromInvalidConfiguration($config);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws InvalidConfigurationException
      */
     public function protect_from_invalid_custom_wordlist_path()
