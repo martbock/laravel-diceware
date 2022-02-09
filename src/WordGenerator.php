@@ -2,7 +2,6 @@
 
 namespace Martbock\Diceware;
 
-use function array_push;
 use function fclose;
 use function feof;
 use function fgets;
@@ -15,7 +14,6 @@ use function preg_match;
 use function random_int;
 use function strpos;
 use function strval;
-use function ucfirst;
 
 class WordGenerator
 {
