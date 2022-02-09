@@ -34,12 +34,13 @@ return [
     | Capitalize
     |--------------------------------------------------------------------------
     |
-    | If you want to capitalize each individual word in your passphrase,
+    | If you want to capitalize one random word in your passphrase,
     | set this option to `true`.
+    | Example: 'landscape-FAVORING-cover-mauve'
     |
     */
 
-    'capitalize' => false,
+    'capitalize' => true,
 
     /*
     |--------------------------------------------------------------------------
