@@ -12,12 +12,12 @@ It uses [Diceware](http://world.std.com/~reinhold/diceware.html) wordlists and i
 
 ## Usage
 
-It is very easy to generate a random diceware password, simply use the Facade like this:
+It's a breeze to generate a random diceware password, simply use the Facade like this:
 
 ```php
 $passphrase = Diceware::generate();
 
-// returns 'unwind-cosmic-entryway-magnetic-stardust-ligament'
+// returns 'unwind-cosmic-entryway-MAGNETIC-stardust-ligament'
 return $passphrase;
 ```
 
@@ -43,13 +43,13 @@ php artisan vendor:publish --provider 'Martbock\Diceware\DicewareServiceProvider
 
 ## Configuration
 
-You may change the default settings in the [diceware.php config file](config/diceware.php) that will be published to
-your Laravel config directory once you install this package. Currently, the following options are supported:
+You may change the default settings in the [diceware.php config file](config/diceware.php) that you can publish to
+your Laravel config directory after you installed this package. Currently, the following options are supported:
 
 ```php
 'number_of_words'       => 6,
 'separator'             => '-',
-'capitalize'            => false,
+'capitalize'            => true,
 'add_number'            => false,
 'wordlist'              => 'english',
 'custom_wordlist_path'  => null,
