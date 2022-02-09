@@ -12,7 +12,7 @@ It uses [Diceware](http://world.std.com/~reinhold/diceware.html) wordlists and i
 
 ## Usage
 
-It's a breeze to generate a random diceware password, simply use the Facade like this:
+It's a breeze to generate a random diceware passphrase, simply use the Facade like this:
 
 ```php
 $passphrase = Diceware::generate();
