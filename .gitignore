@@ -11,3 +11,6 @@ coverage/
 
 # macOS
 .DS_Store
+
+# PHP CS Fixer
+.php-cs-fixer.cache
