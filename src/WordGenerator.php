@@ -2,7 +2,6 @@
 
 namespace Martbock\Diceware;
 
-use function array_push;
 use function fclose;
 use function feof;
 use function fgets;
@@ -15,7 +14,6 @@ use function preg_match;
 use function random_int;
 use function strpos;
 use function strval;
-use function ucfirst;
 
 class WordGenerator
 {
@@ -144,11 +142,12 @@ class WordGenerator
     {
         $words = [];
         for ($i = 0; $i < $numberOfWords; $i++) {
-            $word = $this->getWord($this->generateDicedNumber());
-            if ($this->config['capitalize']) {
-                $word = ucfirst($word);
-            }
-            array_push($words, $word);
+            $words[] = strtolower($this->getWord($this->generateDicedNumber()));
+        }
+
+        if ($this->config['capitalize']) {
+            $i = array_rand($words);
+            $words[$i] = strtoupper($words[$i]);
         }
 
         return $words;

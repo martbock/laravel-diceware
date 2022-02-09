@@ -6,7 +6,6 @@ use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use Martbock\Diceware\Tests\TestCase;
 use Martbock\Diceware\WordGenerator;
-use function ucfirst;
 
 class WordGeneratorTest extends TestCase
 {
@@ -65,17 +64,25 @@ class WordGeneratorTest extends TestCase
     public function should_capitalize_when_active()
     {
         $this->wordGenerator->setConfig('capitalize', true);
-        $words = $this->wordGenerator->generateWords(1);
+        $words = $this->wordGenerator->generateWords(3);
+        $uppercaseCounter = 0;
+        $lowercaseCounter = 0;
         foreach ($words as $word) {
-            $this->assertEquals(ucfirst($word), $word);
+            if (strtoupper($word) === $word) {
+                $uppercaseCounter += 1;
+            } else {
+                $lowercaseCounter += 1;
+            }
         }
+        $this->assertEquals(1, $uppercaseCounter);
+        $this->assertEquals(2, $lowercaseCounter);
     }
 
     /** @test */
     public function should_not_capitalize_when_inactive()
     {
         $this->wordGenerator->setConfig('capitalize', false);
-        $words = $this->wordGenerator->generateWords(1);
+        $words = $this->wordGenerator->generateWords(2);
         foreach ($words as $word) {
             $this->assertEquals(strtolower($word), $word);
         }
