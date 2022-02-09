@@ -31,7 +31,9 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator = new WordGenerator($this->config);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function should_generate_diceware_number()
@@ -41,7 +43,9 @@ class WordGeneratorTest extends TestCase
         $this->assertEquals($this->config['number_of_dice'], strlen($number));
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function cannot_get_invalid_word()
@@ -51,7 +55,9 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->getWord($number);
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws WordlistInvalidException
      */
     public function cannot_parse_invalid_line()
@@ -62,7 +68,9 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws WordlistInvalidException
      * @throws InvalidConfigurationException
      */
@@ -73,7 +81,9 @@ class WordGeneratorTest extends TestCase
         $this->wordGenerator->getWord('12345');
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function should_capitalize_when_active()
@@ -85,7 +95,9 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function should_not_capitalize_when_inactive()
@@ -97,7 +109,9 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function should_add_number_when_active()
@@ -111,7 +125,9 @@ class WordGeneratorTest extends TestCase
         }
     }
 
-    /** @test
+    /**
+     * @test
+     *
      * @throws \Exception
      */
     public function should_not_add_number_when_inactive()
