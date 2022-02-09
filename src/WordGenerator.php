@@ -2,15 +2,15 @@
 
 namespace Martbock\Diceware;
 
-use Illuminate\Support\Facades\File;
-use Martbock\Diceware\Exceptions\InvalidConfigurationException;
-use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use function array_push;
 use function fclose;
 use function feof;
 use function fgets;
 use function fopen;
+use Illuminate\Support\Facades\File;
 use function implode;
+use Martbock\Diceware\Exceptions\InvalidConfigurationException;
+use Martbock\Diceware\Exceptions\WordlistInvalidException;
 use function preg_match;
 use function random_int;
 use function strpos;
