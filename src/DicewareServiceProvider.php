@@ -4,10 +4,10 @@ namespace Martbock\Diceware;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
-use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 use function is_bool;
 use function is_int;
 use function is_string;
+use Martbock\Diceware\Exceptions\InvalidConfigurationException;
 
 class DicewareServiceProvider extends ServiceProvider
 {
