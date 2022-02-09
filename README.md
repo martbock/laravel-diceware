@@ -1,7 +1,7 @@
 # Laravel-Diceware
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/martbock/laravel-diceware.svg?style=flat)](https://packagist.org/packages/martbock/laravel-diceware)
-[![StyleCI](https://github.styleci.io/repos/223468104/shield?branch=master&style=flat)](https://github.styleci.io/repos/223468104)
+[![StyleCI](https://github.styleci.io/repos/223468104/shield?branch=main&style=flat)](https://github.styleci.io/repos/223468104)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/martbock/laravel-diceware?style=flat)](https://codeclimate.com/github/martbock/laravel-diceware)
 [![Code Coverage](https://img.shields.io/codeclimate/coverage/martbock/laravel-diceware?style=flat)](https://codeclimate.com/github/martbock/laravel-diceware)
 [![Build Status](https://github.com/martbock/laravel-diceware/workflows/Run%20tests%20with%20coverage/badge.svg)](https://github.com/martbock/laravel-diceware/actions)
