@@ -1,4 +1,4 @@
-# Laravel-Diceware
+# Diceware for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/martbock/laravel-diceware.svg?style=flat)](https://packagist.org/packages/martbock/laravel-diceware)
 [![StyleCI](https://github.styleci.io/repos/223468104/shield?branch=main&style=flat)](https://github.styleci.io/repos/223468104)
