@@ -29,12 +29,12 @@
         }
     },
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "6.*|7.*",
-        "laravel/framework": "^8.0|^9.0",
-        "phpunit/phpunit": "^9.5"
+        "orchestra/testbench": "8.*",
+        "laravel/framework": "^9.0|^10.0",
+        "phpunit/phpunit": "^9.5|10.0"
     },
     "autoload": {
         "psr-4": {
