@@ -2,9 +2,10 @@
 
 namespace Martbock\Diceware\Tests\Feature;
 
-use function explode;
 use Martbock\Diceware\Facades\Diceware;
 use Martbock\Diceware\Tests\TestCase;
+
+use function explode;
 
 class DicewareTest extends TestCase
 {
