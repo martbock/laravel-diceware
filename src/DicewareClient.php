@@ -25,7 +25,7 @@ class DicewareClient
      *
      * @return string
      */
-    public function generate(int $numberOfWords = null, string $separator = null): string
+    public function generate(?int $numberOfWords = null, ?string $separator = null): string
     {
         return $this->wordGenerator->generatePassphrase($numberOfWords, $separator);
     }
